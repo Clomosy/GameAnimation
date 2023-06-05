@@ -6,8 +6,8 @@ var
   ImgBack:TclProImage;
   ImgTank:TclProImage;
   SndFire:Integer;
-  //GameLoop:TclTimer;
   tPosX,tPosY:Single;
+  
   Procedure BtnRandomFireClick;
   var 
     i:Integer;
@@ -27,17 +27,6 @@ var
   End;
   Procedure ProcOnGameTimer;
   begin
-  {
-    Clomosy.ProcessMessages;
-    MyForm.AnimationWidth := 40; 
-    MyForm.AnimationHeight := 92;
-    MyForm.clAnimateBitmap.AnimationCount :=3;
-    MyForm.clAnimateBitmap.AnimationRowCount:=1;
-    MyForm.clAnimateBitmap.Delay := 0;
-    MyForm.clAnimateBitmap.Duration := 2;
-    tPosY := tPosY - 10;
-    MyForm.clAnimation(tPosX, tPosY, 0, 'TankMove.png');    
-    }
     ImgTank.Visible := True;
     tPosY := tPosY - 10;
     ImgTank.Position.X := tPosX;
@@ -47,8 +36,8 @@ begin
   MyForm := TclGameForm.Create(Self);
   MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/BackImage.jpg');
   MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/Fire.wav');
-  MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/Explosion.png');//animation
-  MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/TankMove.png');//animation
+  MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/Explosion.png');
+  MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/TankMove.png');
   MyForm.AddGameAssetFromUrl('https://www.clomosy.com/game/assets/Tank.png');
   
   tPosX := Random()* TForm(MyForm).ClientWidth;
@@ -58,10 +47,8 @@ begin
 
   ImgBack := MyForm.AddNewProImage(MyForm,'ImgBack');
   ImgBack.clSetImage('BackImage.jpg');
-  //ImgBack.Properties.AutoSize := True;
   ImgBack.Align := alClient;
-  //ImgBack.Visible := False;
-  
+
   ImgTank := MyForm.AddNewProImage(MyForm,'ImgTank');
   ImgTank.clSetImage('Tank.png');
   ImgTank.Properties.AutoSize := False;
@@ -74,7 +61,7 @@ begin
   BtnRandomFire.Align := alBottom;
   
   GameTimer:= MyForm.AddNewTimer(MyForm,'GameTimer',1000);
-  GameTimer.Interval := 500;//36 m.saniye aralıklarla 
+  GameTimer.Interval := 500;
   GameTimer.Enabled := True;
   MyForm.AddNewEvent(GameTimer,tbeOnTimer,'ProcOnGameTimer');
   
