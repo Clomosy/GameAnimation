@@ -8,7 +8,6 @@ Bu proje, basit bir tank oyununu içermektedir. Oyuncular, tankı yukarı hareke
 
 Rastgele Ateş Etme:
    - "RANDOM FIRE" butonuna tıklayarak ekranda rastgele patlamalar oluşturun.
-   - 
 Oyun Ekranı Kontrolleri:
    - Ekranın sol üst köşesinde bulunan "Geri Dön" butonuna tıklayarak ana menüye geri dönün.
 
